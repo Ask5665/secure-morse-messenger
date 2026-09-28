@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Encrypt text with Caesar +3 and encode it as Morse code. An educational cryptography demo.">
+  <title>Secure Morse Messenger</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#message">Skip to message input</a>
+
+  <header class="hero">
+    <h1>🔐 Secure Morse Messenger</h1>
+    <p class="subtitle">Caesar +3 Encryption + Morse Code</p>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="input-h">
+      <h2 id="input-h">Message Input</h2>
+      <label for="message">Type plain text to encrypt, or paste Morse code to decrypt</label>
+      <textarea id="message" rows="5" placeholder="Enter your message here..." spellcheck="false"></textarea>
+    </section>
+
+    <section class="card" aria-labelledby="controls-h">
+      <h2 id="controls-h">Encryption / Decryption Controls</h2>
+      <div class="btn-row">
+        <button id="encryptBtn" class="btn primary" type="button">🔒 Encrypt</button>
+        <button id="decryptBtn" class="btn primary" type="button">🔓 Decrypt</button>
+        <button id="clearBtn" class="btn danger" type="button">🗑️ Clear</button>
+      </div>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="card" aria-labelledby="process-h">
+      <h2 id="process-h">Encryption Process Visualization</h2>
+      <ol class="steps">
+        <li class="step"><span id="label1" class="step-label">Original Text</span><code id="step1" class="mono">—</code></li>
+        <li class="arrow" aria-hidden="true">↓</li>
+        <li class="step"><span id="label2" class="step-label">Caesar +3</span><code id="step2" class="mono">—</code></li>
+        <li class="arrow" aria-hidden="true">↓</li>
+        <li class="step"><span id="label3" class="step-label">Morse Code</span><code id="step3" class="mono">—</code></li>
+      </ol>
+    </section>
+
+    <section class="card" aria-labelledby="output-h">
+      <h2 id="output-h">Output</h2>
+      <div id="output" class="output mono" tabindex="0" aria-live="polite">Your result will appear here.</div>
+      <div class="btn-row">
+        <button id="copyBtn" class="btn" type="button">📋 Copy Output</button>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="audio-h">
+      <h2 id="audio-h">Morse Audio Controls</h2>
+      <p class="muted">Plays the Morse code from your latest result. Dot = short beep, dash = long beep.</p>
+      <div class="btn-row">
+        <button id="playBtn" class="btn" type="button">🔊 Play Morse</button>
+        <button id="stopBtn" class="btn" type="button" disabled>⏹ Stop</button>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="how-h">
+      <h2 id="how-h">How It Works</h2>
+      <div class="two-col">
+        <div>
+          <h3>Encrypt</h3>
+          <p>Each letter moves 3 places forward (A→D, H→K), then every character becomes dots and dashes. Words are separated by <code>/</code>.</p>
+          <p class="mono example">HELLO → KHOOR → -.- .... --- --- .-.</p>
+        </div>
+        <div>
+          <h3>Decrypt</h3>
+          <p>Morse code is decoded back to letters, then each letter moves 3 places backward (K→H).</p>
+          <p class="mono example">-.- .... --- --- .-. → KHOOR → HELLO</p>
+        </div>
+      </div>
+      <p class="muted">Digits are encoded in Morse as they are; the Caesar shift only changes letters. Decryption returns uppercase text.</p>
+    </section>
+
+    <section class="card warn" aria-labelledby="sec-h">
+      <h2 id="sec-h">Security Information</h2>
+      <p>Caesar +3 is a classical educational cipher and is not considered secure modern encryption. Morse code is an encoding method, not encryption.</p>
+      <p>This project demonstrates encryption concepts, decryption, encoding, decoding, classical cryptography and Morse communication. Do not use it to protect sensitive information.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Secure Morse Messenger · Built with HTML, CSS and vanilla JavaScript · For educational use only</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
